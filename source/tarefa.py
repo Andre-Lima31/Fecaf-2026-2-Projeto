@@ -1,7 +1,7 @@
 condicoes_validas = ["A Fazer", "Em Progresso", "Feitos", "Obstruidos"]
 
 class Tarefa:
-    def __init__(eu, id, titulo, detalhes="", condicao="A Fazer"):
+    def __init__(eu, titulo, detalhes="", condicao="A Fazer", id = None):
         eu.id = id
         eu.titulo = titulo
         eu.detalhes = detalhes
