@@ -1,0 +1,14 @@
+*NOTA: o Python usado é o 3.8, o VSCode é o 2.70;
+
+1)Criei uma pasta para o historico. Deletei o antigo .gitkeep que estava aqui dentro para manter a pasta aberta.
+2)Mudei todos os arquivos de jpegs para .png
+
+3) Criei um ambiente virtual no PC, e dai ativei ele, para permitir que eu 'brinque' sem que as alterações feitas ao python aqui afetem o restante do computador, e nenhum dos meus outros projetos ou jogos que usam python, e para que eles não afetem o python.
+
+4) Instalei o framekwork do 'flask API' para rodar o servidor, e depois o Pytest para rodar testes automaticamente, como pedido pelo projeto.
+4.5) print da lista mostrando todas as dependencias instaladas.
+
+5) Dai gerei um documento. E subi ele para o github, para as pessoas poderem instalar ele junto com o codigo usando o Github actions, e dai ele instala todas as dependencias de uma vez, evita erros.
+
+6) Atualizei o Kanban
+
