@@ -1,0 +1,31 @@
+####################################
+#-=TESTES DE CRIAÇÃO=-#
+
+### Teste de criar uma tarefa com sucesso
+POST http://127.0.0.1:5000/tarefas
+Content-Type: application/json
+
+{"titulo": "Escrever README", "detalhamento": "Versão inicial"}
+
+
+### Teste de criar uma tarefa sem titulo
+POST http://127.0.0.1:5000/tarefas
+Content-Type: application/json
+
+{}
+
+### Teste de criar uma tarefa com condição/status não valida
+POST http://127.0.0.1:5000/tarefas
+Content-Type: application/json
+
+{"titulo": "Configurar CRUD", "detalhamento": "", "status":"Mais do que finalizado"}
+
+####################################
+#-=TESTES DE LEITURA-=#
+
+
+### Buscar uma tarefa, usando ID (1 nesse caso)
+GET http://127.0.0.1:5000/tarefas/1
+
+### Tentar buscar uma tarefa que não existe
+GET http://127.0.0.1:5000/tarefas/99
