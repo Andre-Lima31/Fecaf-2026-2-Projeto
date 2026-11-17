@@ -8,10 +8,6 @@ def add(tarefa):
     _tarefas.append(tarefa)
     return tarefa
 
-def listar():
-    return _tarefas
-    print (tarefas)
-
 def buscar(id):
     for tarefa in _tarefas:
         if tarefa.id == id:
@@ -20,6 +16,18 @@ def buscar(id):
         else:
             None
     return None
+
+def listar():
+    return _tarefas
+
+def atualizar(id, titulo, descricao, status):
+    tarefa = buscar(id)
+    if tarefa is None:
+        return None
+    tarefa.titulo = titulo
+    tarefa.detalhes = descricao
+    tarefa.condicao = status
+    return tarefa
 
 def remove(id):
     selecionada = buscar(id)
