@@ -5,20 +5,22 @@
 POST http://127.0.0.1:5000/tarefas
 Content-Type: application/json
 
-{"titulo": "Escrever README", "detalhamento": "Versão inicial"}
-
+{"titulo": "Escrever README",
+ "detalhamento": "Versão inicial"}
 
 ### Teste de criar uma tarefa sem titulo
 POST http://127.0.0.1:5000/tarefas
 Content-Type: application/json
-
+#NOTA: mantenha esse espaço entre o tipo de conteudo e as chaves, sem ele o codigo não roda. Se não ta rodando verifica se não tirou esse espaço. Erro bobo
 {}
 
 ### Teste de criar uma tarefa com condição/status não valida
 POST http://127.0.0.1:5000/tarefas
 Content-Type: application/json
 
-{"titulo": "Configurar CRUD", "detalhamento": "", "status":"Mais do que finalizado"}
+{"titulo": "Configurar CRUD",
+ "detalhamento": "",
+  "status":"Mais do que finalizado"}
 
 ####################################
 #-=TESTES DE LEITURA-=#
@@ -29,3 +31,52 @@ GET http://127.0.0.1:5000/tarefas/1
 
 ### Tentar buscar uma tarefa que não existe
 GET http://127.0.0.1:5000/tarefas/99
+
+####################################
+#-=TESTE DE ATUALIZAÇÃO-=#
+
+### Atualizar tarefa, quando feito corretamente
+PUT http://127.0.0.1:5000/tarefas/1
+Content-Type: application/json
+
+{"titulo": "README revisado", 
+"detalhamento": "Segunda versão", 
+"status": "Em Progresso"}
+
+### Atualizar sem um titulo
+PUT http://127.0.0.1:5000/tarefas/1
+Content-Type: application/json
+
+{"detalhamento": "README revisado",
+"status": "Em Progresso"}
+
+### Atualizar com um status errado
+PUT http://127.0.0.1:5000/tarefas/1
+Content-Type: application/json
+
+{"titulo": "README revisado", 
+"detalhamento": "Segunda versão", 
+"status": "Quase lá"}
+
+### Atualizar tarefa com ID inexistente (99)
+PUT http://127.0.0.1:5000/tarefas/99
+Content-Type: application/json
+
+{"titulo": "README revisado", 
+"detalhamento": "Segunda versão", 
+"status": "Em Progresso"}
+
+
+####################################
+#-=TESTE DE DELETAR-=#
+### Apagar tarefa
+DELETE http://127.0.0.1:5000/tarefas/1
+
+### Apagando uma tarefa que não existe (erro)
+DELETE http://127.0.0.1:5000/tarefas/99
+
+
+####################################
+#-=LISTAR TODAS AS TAREFAS-=#
+### Listar tarefas
+GET http://127.0.0.1:5000/tarefas
