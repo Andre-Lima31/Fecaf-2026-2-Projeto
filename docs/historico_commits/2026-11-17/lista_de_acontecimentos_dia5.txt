@@ -1,0 +1,8 @@
+1) criei uma função de atualizar tarefas no gestor.py, que controla a parte do python
+2) Conectei função de atualizar tarefas existentes ao servidor.py
+3) Testei a função usando o TestesAPI.http
+
+4) Coloquei um codigo para garantir que não saia estranho em testes futuros, atrasado mas melhor tarde do que nunca
+
+5) Conectei a função de deletar que já existia no gestor.py ao servidor.py
+
