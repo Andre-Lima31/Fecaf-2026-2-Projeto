@@ -11,6 +11,6 @@ class Tarefa:
         return{
             "id": eu.id,
             "titulo": eu.titulo,
-            "detalhamento": eu.detalhes,
+            "detalhes": eu.detalhes,
             "status": eu.condicao
         }
