@@ -17,7 +17,7 @@ def criar_tarefa():
     if status not in condicoes_validas:
         return jsonify({"erro":"Bad Request. Status de tarefa invalido!"}), 400
     
-    nova_tarefa = Tarefa(titulo, info.get("detalhamento", ""), status) 
+    nova_tarefa = Tarefa(titulo, info.get("detalhes", ""), status) 
     gestor.add(nova_tarefa)
     return jsonify(nova_tarefa.para_dicionario()), 201
 
@@ -41,7 +41,7 @@ def atualizar_tarefa(id):
     status = info.get("status", "A Fazer")
     if status not in condicoes_validas:
         return jsonify({"erro": "Status de tarefa não valido!"}), 400
-    tarefa = gestor.atualizar(id, titulo, info.get("detalhamento", ""), status)
+    tarefa = gestor.atualizar(id, titulo, info.get("detalhes", ""), status)
     if tarefa is None:
         return jsonify({"erro": "Não foi possivel encontrar a tarefa, confira se digitou corretamente."}), 404
     return jsonify(tarefa.para_dicionario())
