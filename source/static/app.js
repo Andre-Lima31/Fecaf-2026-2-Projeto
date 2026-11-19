@@ -1,3 +1,13 @@
+let idEmEdicao = null;
+
+function iniciarEdicao(tarefa) {
+    idEmEdicao = tarefa.id;
+    document.getElementById("titulo").value = tarefa.titulo;
+    document.getElementById("detalhes").value = tarefa.detalhes;
+    document.getElementById("status").value = tarefa.status;
+    document.getElementById("botao-enviar").textContent = "Atualizar";
+}
+
 async function carregarTarefas() {
     const resposta = await fetch("/tarefas");
     const ListaDeTarefas = await resposta.json();
@@ -18,24 +28,33 @@ async function carregarTarefas() {
         cartao.className = "cartao";
         const titulo = document.createElement("strong");
         titulo.textContent = tarefa.titulo;
-        const detalhe = document.createElement("p");
-        detalhe.textContent = tarefa.detalhamento;
+        const detalhes = document.createElement("p");
+        detalhes.textContent = tarefa.detalhes;
 
-
+        const botaoEditar = document.createElement("button");
+        botaoEditar.textContent = "Editar";
+        botaoEditar.addEventListener("click", function () {
+        iniciarEdicao(tarefa);
+});
         cartao.appendChild(titulo);
-        cartao.appendChild(detalhe);
+        cartao.appendChild(detalhes);
         coluna.appendChild(cartao);
+        cartao.appendChild(botaoEditar);
     });
 }
 
 document.getElementById("formulario").addEventListener("submit", async function (evento) {
-    evento.preventDefault();
-    const resposta = await fetch("/tarefas", {
-        method: "POST",
+    evento.preventDefault(); 
+
+    const url = idEmEdicao === null ? "/tarefas" : "/tarefas/" + idEmEdicao;
+    const metodo = idEmEdicao === null ? "POST" : "PUT";
+
+    const resposta = await fetch(url, {
+        method: metodo,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             titulo: document.getElementById("titulo").value,
-            detalhamento: document.getElementById("detalhes").value,
+            detalhes: document.getElementById("detalhes").value,
             status: document.getElementById("status").value
         })
     });
@@ -44,10 +63,12 @@ document.getElementById("formulario").addEventListener("submit", async function 
     if (resposta.ok) {
         mensagem.textContent = "";
         document.getElementById("formulario").reset();
-        carregarTarefas();
+        idEmEdicao = null;
+        document.getElementById("botao-enviar").textContent = "Adicionar";
+        carregarTarefas();  
     } else {
         const erro = await resposta.json();
-        mensagem.textContent = erro.erro;
+        mensagem.textContent = erro.erro; 
     }
 });
 
