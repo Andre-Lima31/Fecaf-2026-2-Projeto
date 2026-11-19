@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from source.tarefa import Tarefa, condicoes_validas
 from source import gestor
 
@@ -51,6 +51,10 @@ def apagar_tarefa(id):
     if gestor.remove(id):
         return "", 204
     return jsonify({"erro": "Tarefa não achada."}), 404
+
+@site.route("/")
+def pagina_inicial():
+    return render_template("index.html")
 
 if __name__ == "__main__":
     site.run(debug=True)
