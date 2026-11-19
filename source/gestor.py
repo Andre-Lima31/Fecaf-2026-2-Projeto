@@ -20,12 +20,12 @@ def buscar(id):
 def listar():
     return _tarefas
 
-def atualizar(id, titulo, descricao, status):
+def atualizar(id, titulo, detalhes, status):
     tarefa = buscar(id)
     if tarefa is None:
         return None
     tarefa.titulo = titulo
-    tarefa.detalhes = descricao
+    tarefa.detalhes = detalhes
     tarefa.condicao = status
     return tarefa
 
