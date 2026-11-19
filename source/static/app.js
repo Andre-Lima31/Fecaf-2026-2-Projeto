@@ -8,6 +8,22 @@ function iniciarEdicao(tarefa) {
     document.getElementById("botao-enviar").textContent = "Atualizar";
 }
 
+async function apagarTarefa(tarefa) {
+    const resposta = await fetch("/tarefas/" + tarefa.id, { method: "DELETE" });
+
+    if (resposta.ok) {
+        if (idEmEdicao === tarefa.id) {
+            idEmEdicao = null;
+            document.getElementById("formulario").reset();
+            document.getElementById("botao-enviar").textContent = "Adicionar";
+        }
+        carregarTarefas();
+    } else {
+        const erro = await resposta.json();
+        document.getElementById("mensagem-erro").textContent = erro.erro;
+    }
+}
+
 async function carregarTarefas() {
     const resposta = await fetch("/tarefas");
     const ListaDeTarefas = await resposta.json();
@@ -35,11 +51,18 @@ async function carregarTarefas() {
         botaoEditar.textContent = "Editar";
         botaoEditar.addEventListener("click", function () {
         iniciarEdicao(tarefa);
-});
+
+    });
+        const botaoApagar = document.createElement("button");
+        botaoApagar.textContent = "Excluir";
+        botaoApagar.addEventListener("click", function () {
+        apagarTarefa(tarefa);});
         cartao.appendChild(titulo);
         cartao.appendChild(detalhes);
         coluna.appendChild(cartao);
         cartao.appendChild(botaoEditar);
+        cartao.appendChild(botaoApagar);
+        
     });
 }
 
