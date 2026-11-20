@@ -35,4 +35,4 @@ JavaScript, executados no navegador.
 - `docs/`: documentação, diagramas, prints de todo o processo separado em dias, e requisições de teste da API.
 
 ## Mudança de escopo
-(Esta seção será preenchida na reunião da sprint 1. Realizada em 19/11/2026 - 19:00 BRT)
+(Esta seção será preenchida na reunião da sprint 1. Realizada em 20/11/2026 - 19:00 BRT)
