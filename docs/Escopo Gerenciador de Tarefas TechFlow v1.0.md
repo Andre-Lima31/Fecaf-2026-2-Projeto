@@ -1,34 +1,35 @@
 # Projeto TrilhaFlow: v1.0
 
 ## Justificativa de Projeto: 
-o cliente, uma startup de logÌstica, lida com diversos processos e projetos simultaneamente, que s„o feitos de partes diferentes que devem ser concluÌdas para formar o projeto final, e cada uma dessas partes s„o manuseadas por equipes diferentes, e com frequÍncia o progresso de cada projeto individual pode n„o ficar claro tanto para os participantes do prÛprio projeto, quanto para os gerentes e clientes que esperam a conclus„o do projeto.
+o cliente, uma startup de log√≠stica, lida com diversos processos e projetos simultaneamente, que s√£o feitos de partes diferentes que devem ser conclu√≠das para formar o projeto final, e cada uma dessas partes s√£o manuseadas por equipes diferentes, e com frequ√™ncia o progresso de cada projeto individual pode n√£o ficar claro tanto para os participantes do pr√≥prio projeto, quanto para os gerentes e clientes que esperam a conclus√£o do projeto.
 
 ## Finalidade do Projeto: 
-Organizar e dar visibilidade ao progresso individual de cada projeto e suas partes, permitindo que os gerentes e clientes possam acompanhar o progresso sem depender de relatos informais ou emails longos. Apresentando informaÁ„o de maneira visual e intuitiva. 
+Organizar e dar visibilidade ao progresso individual de cada projeto e suas partes, permitindo que os gerentes e clientes possam acompanhar o progresso sem depender de relatos informais ou emails longos. Apresentando informa√ß√£o de maneira visual e intuitiva. 
 
-## DescriÁ„o do Projeto: 
-Sistema web de gerenciamento de tarefas em Kanban, desenvolvido pela TechFlow Solutions para uma startup de logÌstica.
+## Descri√ß√£o do Projeto: 
+Sistema web de gerenciamento de tarefas em Kanban, desenvolvido pela TechFlow Solutions para uma startup de log√≠stica.
 
 ## Estimativa de Tempo Para Primeira Entrega: 
 Duas sprints de 7 dias (uma semana), para o total de duas semanas.
-InicializaÁ„o formal do projeto : 12/11/2026
-Entrega esperada da primeira sprint: 19/11/2026
+Discuss√£o entre cliente e TechFlow, levantamento de requisitos: 11/11/2026
+Inicializa√ß√£o formal do projeto : 13/11/2026
+Entrega esperada da primeira sprint: 20/11/2026
 
-## Funcionalidades IncluÌdas:
+## Funcionalidades Inclu√≠das:
 - Criar, listar, editar e apagar tarefas (CRUD).
-- Cada tarefa tem tÌtulo (obrigatÛrio), descriÁ„o e status.
-- Status permitido: A Fazer, Em Progresso, Feito e ObstruÌdo.
-- VisualizaÁ„o das tarefas em colunas por status.
-- ValidaÁ„o de entradas (tÌtulo obrigatÛrio, status v·lido).
-- Testes automatizados e integraÁ„o contÌnua (GitHub Actions).
+- Cada tarefa tem t√≠tulo (obrigat√≥rio), descri√ß√£o e status.
+- Status permitido: A Fazer, Em Progresso, Feito e Obstru√≠do.
+- Visualiza√ß√£o das tarefas em colunas por status.
+- Valida√ß√£o de entradas (t√≠tulo obrigat√≥rio, status v√°lido).
+- Testes automatizados e integra√ß√£o cont√≠nua (GitHub Actions).
 
-## Exclusıes da Vers„o 1.0:
+## Exclus√µes da Vers√£o 1.0:
 - Prioridade das tarefas.
 - Prazo (data limite) e alerta de atraso.
-- Respons·vel pela tarefa.
+- Respons√°vel pela tarefa.
 - Painel de desempenho da equipe.
-- Login e controle de usu·rios.
-- ConfirmaÁ„o antes de apagar uma tarefa.
+- Login e controle de usu√°rios.
+- Confirma√ß√£o antes de apagar uma tarefa.
 
 ## Tecnologias Usadas: 
 Python 3.8, Flask, Pytest, GitHub Actions. Interface em HTML, CSS e JavaScript, executados no navegador.
