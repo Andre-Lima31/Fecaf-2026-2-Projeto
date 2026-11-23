@@ -7,7 +7,6 @@ class Usuario:
         eu.papel = papel  # a função da pessoa.
         eu.senha_hash = generate_password_hash(senha)
 
-    
     def conferir_senha(eu, senha):
         return check_password_hash(eu.senha_hash, senha)
 
