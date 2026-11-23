@@ -7,39 +7,52 @@
 </head>
 <body>
     <h1>Gerenciador de Tarefas</h1>
-
-    <form id="formulario">
-        <input type="text" id="titulo" placeholder="Título">
-        <input type="text" id="detalhes" placeholder="Descrição">
-        <select id="status">
-            <option value="A Fazer">A Fazer</option>
-            <option value="Em Progresso">Em Progresso</option>
-            <option value="Feito">Feito</option>
-            <option value="Obstruído">Obstruído</option>
-        </select>
-        <button type="submit" id="botao-enviar">Adicionar</button>
-        <p id="mensagem-erro"></p>
-    </form>
-
-    <div id="quadro">
-        <section>
-            <h2>A Fazer</h2>
-            <div class="coluna" data-status="A Fazer"></div>
-        </section>
-        <section>
-            <h2>Em Progresso</h2>
-            <div class="coluna" data-status="Em Progresso"></div>
-        </section>
-        <section>
-            <h2>Feito</h2>
-            <div class="coluna" data-status="Feito"></div>
-        </section>
-        <section>
-            <h2>Obstruído</h2>
-            <div class="coluna" data-status="Obstruído"></div>
-        </section>
+    <div id="tela-login">
+        <form id="form-login">
+            <input type="text" id="login-nome" placeholder="Usuário">
+            <input type="password" id="login-senha" placeholder="Senha">
+            <button type="submit">Entrar</button>
+            <p id="login-erro"></p>
+        </form>
     </div>
 
-    <script src="/static/app.js"></script>
+    <div id="app" style="display: none;">
+        <p>Logado como <strong id="usuario-logado"></strong>
+           <button type="button" id="botao-sair">Sair</button></p>
+
+        <form id="formulario">
+            <input type="text" id="titulo" placeholder="Título">
+            <input type="text" id="detalhes" placeholder="Descrição">
+            <select id="status">
+                <option value="A Fazer">A Fazer</option>
+                <option value="Em Progresso">Em Progresso</option>
+                <option value="Feito">Feito</option>
+                <option value="Obstruído">Obstruído</option>
+           </select>
+            <button type="submit" id="botao-enviar">Adicionar</button>
+            <p id="mensagem-erro"></p>
+        </form>
+
+        <div id="quadro">
+            <section>
+                <h2>A Fazer</h2>
+                <div class="coluna" data-status="A Fazer"></div>
+            </section>
+            <section>
+                <h2>Em Progresso</h2>
+                <div class="coluna" data-status="Em Progresso"></div>
+           </section>
+            <section>
+                <h2>Feito</h2>
+                <div class="coluna" data-status="Feito"></div>
+            </section>
+            <section>
+                <h2>Obstruído</h2>
+                <div class="coluna" data-status="Obstruído"></div>
+            </section>
+        </div>
+    </div>
+
+<script src="/static/app.js"></script>
 </body>
 </html>
