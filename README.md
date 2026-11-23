@@ -20,7 +20,7 @@ Prioridades do backlog:
 **Atenção** = equivalente a prioridade media, necessário primeiro devemos focar na prioridade alta (ex.: testes e verificação de qualidade).
 
 ## Tecnologias Usadas
-Python 3.8, Flask, Pytest, GitHub Actions. Interface em HTML, CSS e JavaScript, executados no navegador.
+Python 3.8, Flask, Pytest, Flake8, GitHub Actions. Interface em HTML, CSS e JavaScript, executados no navegador.
 
 ## Como executar
 1. Clone o repositório e entre na pasta do projeto.
