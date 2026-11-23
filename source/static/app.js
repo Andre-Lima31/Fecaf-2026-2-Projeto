@@ -10,6 +10,9 @@ function iniciarEdicao(tarefa) {
 }
 
 async function apagarTarefa(tarefa) {
+    if (!confirm('Apagar a tarefa "' + tarefa.titulo + '"?')) {
+        return;
+    }
     const resposta = await fetch("/tarefas/" + tarefa.id, { method: "DELETE" });
 
     if (resposta.ok) {
