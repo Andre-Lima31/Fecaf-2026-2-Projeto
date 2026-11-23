@@ -24,3 +24,18 @@ body {
     padding: 8px;
     margin-bottom: 8px;
 }
+
+#mensagem-erro,
+#login-erro {
+    color: #c62828;
+    min-height: 1.2em;
+}
+
+.cartao button {
+    margin-right: 6px;
+}
+
+#quadro section:nth-child(1) { border-top: 4px solid #1976d2; }
+#quadro section:nth-child(2) { border-top: 4px solid #f9a825; }
+#quadro section:nth-child(3) { border-top: 4px solid #2e7d32; }
+#quadro section:nth-child(4) { border-top: 4px solid #c62828; }
