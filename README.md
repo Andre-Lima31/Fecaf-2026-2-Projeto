@@ -1,14 +1,13 @@
-# Projeto TrilhaFlow v1.0
+# Projeto TrilhaFlow v1.1
 
 Sistema web de gerenciamento de tarefas em Kanban, desenvolvido pelaTechFlow Solutions para uma startup de logística.
-
-**Versão atual:** v1.0 (em evolução para a v1.1)
 
 ## Objetivo
 Dar visibilidade ao andamento de projetos e de suas partes, para equipes, gerentes e clientes acompanharem o progresso das tarefas em um quadro único.
 
 ## Escopo
-Resumo da versão 1.0: criar, listar, editar e apagar tarefas, com título, descrição e status (A Fazer, Em Progresso, Feito e Obstruído), exibidas em colunas por status. O escopo completo está em `docs/escopo/Escopo Gerenciador de Tarefas TechFlow v1.0.md`.
+Resumo da versão 1.1: criar, listar, editar e apagar tarefas, com título, descrição e status (A Fazer, Em Progresso, Feito e Obstruído), exibidas em colunas por status, sistema de login com senha*. O escopo completo está em O escopo completo está em `docs/escopo/Escopo Trilha Flow v1.1.md`..
+*senhas usadas são ficticias.
 
 ## Metodologia de Trabalho
 Kanban, com o quadro no GitHub Projects (aba Projects do repositório).
