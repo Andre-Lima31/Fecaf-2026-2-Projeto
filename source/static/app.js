@@ -1,4 +1,5 @@
 let idEmEdicao = null;
+let papelAtual = null;
 
 function iniciarEdicao(tarefa) {
     idEmEdicao = tarefa.id;
@@ -9,6 +10,9 @@ function iniciarEdicao(tarefa) {
 }
 
 async function apagarTarefa(tarefa) {
+    if (!confirm('Apagar a tarefa "' + tarefa.titulo + '"?')) {
+        return;
+    }
     const resposta = await fetch("/tarefas/" + tarefa.id, { method: "DELETE" });
 
     if (resposta.ok) {
@@ -60,8 +64,10 @@ async function carregarTarefas() {
         cartao.appendChild(titulo);
         cartao.appendChild(detalhes);
         coluna.appendChild(cartao);
-        cartao.appendChild(botaoEditar);
-        cartao.appendChild(botaoApagar);
+        if (papelAtual === "gerente") {
+            cartao.appendChild(botaoEditar);
+            cartao.appendChild(botaoApagar);
+        }
         
     });
 }
@@ -95,6 +101,51 @@ document.getElementById("formulario").addEventListener("submit", async function 
     }
 });
 
-carregarTarefas(); //se remover isso daqui o codigo não é executado quando abre
+function mostrarTela(logado) {
+    document.getElementById("tela-login").style.display = logado ? "none" : "block";
+    document.getElementById("app").style.display = logado ? "block" : "none";
+}
+
+async function verificarSessao() {
+    const resposta = await fetch("/sessao");
+    if (resposta.ok) {
+        const usuario = await resposta.json();
+        document.getElementById("usuario-logado").textContent =
+            usuario.nome + " (" + usuario.papel + ")";
+        mostrarTela(true);
+        papelAtual = usuario.papel;
+        document.getElementById("formulario").style.display =
+            papelAtual === "gerente" ? "block" : "none";
+        carregarTarefas();
+    } else {
+        mostrarTela(false);
+    }
+}
+
+document.getElementById("form-login").addEventListener("submit", async function (evento) {
+    evento.preventDefault();
+    const resposta = await fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            nome: document.getElementById("login-nome").value,
+            senha: document.getElementById("login-senha").value
+        })
+    });
+    if (resposta.ok) {
+        document.getElementById("form-login").reset();
+        document.getElementById("login-erro").textContent = "";
+        verificarSessao();
+    } else {
+        const erro = await resposta.json();
+        document.getElementById("login-erro").textContent = erro.erro;
+    }
+});
+
+document.getElementById("botao-sair").addEventListener("click", async function () {
+    await fetch("/logout", { method: "POST" });
+    mostrarTela(false);});
+
+verificarSessao(); //agora isso só vai rodar se a resposta para o login voltar como ok, else não carrega.
 
 //*E comentarios é com // no javascript por sinal, pois sei que vai demorar para se acostumar

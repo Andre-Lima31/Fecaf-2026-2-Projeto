@@ -21,3 +21,8 @@ jobs:
 
       - name: Rodar testes
         run: pytest
+
+      - name: Verificar qualidade do código
+        run: |
+          pip install flake8==5.0.4
+          flake8 source tests

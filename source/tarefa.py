@@ -1,16 +1,20 @@
 condicoes_validas = ["A Fazer", "Em Progresso", "Feitos", "Obstruidos"]
 
+
 class Tarefa:
-    def __init__(eu, titulo, detalhes="", condicao="A Fazer", id = None):
+    def __init__(eu, titulo, detalhes="", condicao="A Fazer", id=None):
         eu.id = id
         eu.titulo = titulo
         eu.detalhes = detalhes
         eu.condicao = condicao
-    
+
     def para_dicionario(eu):
-        return{
+        return {
             "id": eu.id,
             "titulo": eu.titulo,
             "detalhes": eu.detalhes,
             "status": eu.condicao
         }
+
+# python -c "from source.tarefa import Tarefa; print(Tarefa('Teste').para_dicionario())" para testar, não
+# esquecer.
